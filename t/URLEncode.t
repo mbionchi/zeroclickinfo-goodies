@@ -62,7 +62,7 @@ ddg_goodie_test(
     'https://example.com/zero#clickinfo^<goodies>;spice:fathead-\ encodeurl' => test_zci(
         "Percent-encoded URL: https%3A%2F%2Fexample.com%2Fzero%23clickinfo%5E%3Cgoodies%3E%3Bspice%3Afathead-%5C",
         structured_answer => {
-            input     => ['https://example.com/zero#clickinfo^&lt;goodies&gt;;spice:fathead-\\'],
+            input     => ['https://example.com/zero#clickinfo^<goodies>;spice:fathead-\\'],
             operation => 'URL percent-encode',
             result    => 'https%3A%2F%2Fexample.com%2Fzero%23clickinfo%5E%3Cgoodies%3E%3Bspice%3Afathead-%5C'
         }
@@ -71,7 +71,7 @@ ddg_goodie_test(
     'urlescape https://example.org/the answer to "[life], (the universe) .and. <everything>"' => test_zci(
         "Percent-encoded URL: https%3A%2F%2Fexample.org%2Fthe%20answer%20to%20%22%5Blife%5D%2C%20(the%20universe)%20.and.%20%3Ceverything%3E%22",
         structured_answer => {
-            input     => ['https://example.org/the answer to &quot;[life], (the universe) .and. &lt;everything&gt;&quot;'],
+            input     => ['https://example.org/the answer to "[life], (the universe) .and. <everything>"'],
             operation => 'URL percent-encode',
             result    => 'https%3A%2F%2Fexample.org%2Fthe%20answer%20to%20%22%5Blife%5D%2C%20(the%20universe)%20.and.%20%3Ceverything%3E%22'
         }
@@ -80,7 +80,7 @@ ddg_goodie_test(
     'www.heroku.com/{rawwr!@#$%^&*()+=__} escapeurl' => test_zci(
         "Percent-encoded URL: www.heroku.com%2F%7Brawwr!%40%23%24%25%5E%26*()%2B%3D__%7D",
         structured_answer => {
-            input     => ['www.heroku.com/{rawwr!@#$%^&amp;*()+=__}'],
+            input     => ['www.heroku.com/{rawwr!@#$%^&*()+=__}'],
             operation => 'URL percent-encode',
             result    => 'www.heroku.com%2F%7Brawwr!%40%23%24%25%5E%26*()%2B%3D__%7D',
         }
@@ -89,7 +89,7 @@ ddg_goodie_test(
     'äöü escapeurl' => test_zci(
         "Percent-encoded URL: %E4%F6%FC",
         structured_answer => {
-            input     => ['&auml;&ouml;&uuml;'],
+            input     => ['äöü'],
             operation => 'URL percent-encode',
             result    => '%E4%F6%FC',
         }

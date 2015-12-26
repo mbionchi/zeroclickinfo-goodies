@@ -39,9 +39,9 @@ handle remainder => sub {
 
     return $text,
       structured_answer => {
-        input     => [html_enc($in)],
+        input     => [$in],
         operation => 'URL percent-encode',
-        result    => html_enc($encoded_url),
+        result    => $encoded_url,
       };
 };
 
